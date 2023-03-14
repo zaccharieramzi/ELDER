@@ -56,7 +56,7 @@ def main(cfg:DictConfig):
     regularization.network.load_state_dict(checkpoint)
     restore=instantiate(cfg.exp.restore,_convert_="all",_partial_=True)(regularization=regularization,task=task)
     restore.to(device)
-    
+
     for test_idx,test in enumerate(task.val_lst):
         aux=test.copy()
         del aux['name']
@@ -78,7 +78,7 @@ def main(cfg:DictConfig):
                 gt_img=pad(gt_img,(0,w_pad,0,h_pad),mode='reflect')
 
             results=restore(gt_img,aux,extract_results=True)
-            
+
             Path(join(test['name'],'images',f'{img_idx}')).mkdir(parents=True,exist_ok=True)
 
             imsave(join(test['name'],'images',f'{img_idx}','gt.png'),single2uint(tensor2single(gt_img)))
