@@ -6,3 +6,5 @@ scikit-image
 opencv-python
 hdf5storage
 natsort
+matplotlib
+pandas
