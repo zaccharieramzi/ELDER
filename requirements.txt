@@ -1,0 +1,8 @@
+pytorch-lightning
+torch
+torchvision
+hydra-core
+scikit-image
+opencv-python
+hdf5storage
+natsort
