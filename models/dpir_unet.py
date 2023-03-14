@@ -1,5 +1,4 @@
 from operator import xor
-from turtle import forward
 import torch
 import torch.nn as nn
 from .gspnp.network_unet import UNetRes
@@ -42,7 +41,7 @@ class NNclass(nn.Module):
             x_sigma=x
         h=self.network(self.preForward(x_sigma,**kwargs))
         out = self.postForward(h,x,**kwargs)
-        
+
         if xH % 8 != 0 or xW % 8 != 0:
             out = out[:,:,:xH,:xW]
         return out
@@ -154,7 +153,7 @@ class REDPotentialNNclass(NNclass):
             Dg = Dg[:,:,:xH,:xW]
             N = N[:,:,:xH,:xW]
         return Dg, N
-        
+
 
 
 class PotentialNNclass(NNclass):
