@@ -21,13 +21,13 @@ Once downloaded, place them into `./ckpts`.
 ELDER:
 
 ```
-python tune.py data_fidality=sr_test_x3 regularization=elder
+python elder/tune.py data_fidality=sr_test_x3 regularization=elder
 ```
 
 DEQ:
 
 ```
-python tune.py data_fidality=sr_test_x3 regularization=deq
+python elder/tune.py data_fidality=sr_test_x3 regularization=deq
 ```
 
 ### Citation
@@ -36,6 +36,6 @@ If you find the paper useful in your research, please cite the paper:
 @ARTICLE{Zou.etal2023,
   author={Z. {Zou} and J. {Liu} and B. {Wohlberg} and U. S. {Kamilov}},
   journal={arXiv preprint arXiv:2303.05386},
-  title={Deep Equilibrium Learning of Explicit Regularizers for Imaging Inverse Problems}, 
+  title={Deep Equilibrium Learning of Explicit Regularizers for Imaging Inverse Problems},
   year={2023},
 }
