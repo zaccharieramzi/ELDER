@@ -29,7 +29,7 @@ def prefix_path(config):
         if config.exp.paths[path] is not None and not isabs(config.exp.paths[path]):
             config.exp.paths[path]=join(get_original_cwd(),config.exp.paths[path])
 
-@hydra.main(config_path='conf',config_name='tune')
+@hydra.main(config_path='../conf',config_name='tune')
 def main(cfg:DictConfig):
     prefix_path(cfg)
     logger.info(f'{cfg}')
