@@ -21,7 +21,7 @@ exp:
   regularization: ${regularization.model}
   pretrained_checkpoint: ${exp.paths.pretrained_checkpoint}
   restore:
-    _target_: utils.utils_restore.Restore
+    _target_: elder.utils.utils_restore.Restore
     init_tau: ${regularization.tau}
     init_lamb: ${regularization.lamb}
     init_sigma: ${regularization.sigma}
