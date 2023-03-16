@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import hydra
 from omegaconf import DictConfig
 from hydra.utils import instantiate,get_original_cwd
@@ -99,7 +101,16 @@ def main(cfg:DictConfig):
                 for k in range(len(results['Dx'])):
                     imsave(join(test['name'],'images',f'{img_idx}','every_step','Dx',f'Dx_{k}.png'),single2uint(results['Dx'][k]))
         avg_final_psnr/=len(input_img_lst)
-        result_data_frame=pd.DataFrame({'final_psnr':[avg_final_psnr]})
-        result_data_frame.to_csv(join(test['name'],'info.csv'),index=None)
+        result_data_frame=pd.DataFrame({
+            'final_psnr':[avg_final_psnr],
+            'max_iter': [cfg.exp.restore.max_iter],
+        })
+        output_file = Path(get_original_cwd()) / cfg.output_csv
+        if output_file.exists():
+            result_data_frame.to_csv(output_file, index=None, header=False, mode="a")
+        else:
+            result_data_frame.to_csv(output_file, index=None)
+
+
 if __name__ == '__main__':
     main()

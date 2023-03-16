@@ -6,11 +6,12 @@ hydra:
     dir: ../potential_tune/${exp.task._target_}_${exp.regularization._target_}
     subdir: ${now:%Y-%m-%d}_${now:%H-%M-%S}
 defaults:
-  - data_fidality: 
-  - regularization: 
+  - data_fidality:
+  - regularization:
 exp:
   device: 'cuda:0'
   output_every_step: true
+  output_csv: info.csv
   paths:
     pretrained_checkpoint: ${regularization.pretrained_model}
     data_path: miscs/CBSD68/0016.png
