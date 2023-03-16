@@ -1,5 +1,5 @@
 model:
-  _target_: models.dpir_unet.DPIRNNclass
+  _target_: elder.models.dpir_unet.DPIRNNclass
   train_sigma_factor: false
   train_network: false
   numInChan: 3
