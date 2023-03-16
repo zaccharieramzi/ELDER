@@ -105,7 +105,7 @@ def main(cfg:DictConfig):
             'final_psnr':[avg_final_psnr],
             'max_iter': [cfg.exp.restore.max_iter],
         })
-        output_file = Path(get_original_cwd()) / cfg.output_csv
+        output_file = Path(get_original_cwd()) / cfg.exp.output_csv
         if output_file.exists():
             result_data_frame.to_csv(output_file, index=None, header=False, mode="a")
         else:
