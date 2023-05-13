@@ -26,4 +26,4 @@ And this one for DEQ:
 python elder/tune.py data_fidality=sr_test_x3 regularization=deq exp.output_every_step=False 'exp.paths.data_path=miscs/CBSD68' 'exp.restore.max_iter=range(20, 200, 20)'
 ```
 
-To generate the figure
+To generate the figure use the [`results_n_iter`](common_experiments/results_n_iter.ipynb) notebook.
