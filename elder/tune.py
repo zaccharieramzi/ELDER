@@ -91,7 +91,7 @@ def main(cfg:DictConfig):
             imsave(join(test['name'],'images',f'{img_idx}','last_recon.png'),single2uint(results['recon_image']))
             imsave(join(test['name'],'images',f'{img_idx}','best_recon.png'),single2uint(results['peak_image']))
             avg_final_psnr+=results['final_psnr']
-            avg_final_pure_loss += results['final_pure_loss']
+            avg_final_pure_loss += results['pure_loss'][-1]
             if cfg.exp.output_every_step:
                 Path(join(test['name'],'images',f'{img_idx}','every_step','x')).mkdir(parents=True,exist_ok=True)
                 for k in range(len(results['x'])):
