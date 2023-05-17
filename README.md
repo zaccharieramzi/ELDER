@@ -10,8 +10,9 @@ You can then install the requirements using the following command:
 pip install .
 ```
 
-## Reproducing Fig. 9 of the paper
-In order to reproduce Fig 9. of the paper you will need to download the [model weights](https://drive.google.com/drive/folders/1Q1DTyWffT6dGEaLMO3qa2l4U5QVaNVeG?usp=sharing) for each of the experiments.
+## Reproducing Fig. G.4 of the paper
+In order to reproduce Fig. G.4 of the paper you will need to download the [model weights](https://drive.google.com/drive/folders/1Q1DTyWffT6dGEaLMO3qa2l4U5QVaNVeG?usp=sharing) for each of the experiments.
+These weights come from the original work that introduced ELDER.
 
 Once downloaded, place them into `./ckpts`.
 
