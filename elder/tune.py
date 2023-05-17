@@ -70,6 +70,7 @@ def main(cfg:DictConfig):
         if isinstance(task,super_resolution.SuperResolution) or isinstance(task,inpainting.Inpainting):
             aux['seed']=0
         avg_final_psnr=0
+        avg_final_pure_loss = 0
 
         for img_idx,img in enumerate(input_img_lst):
             logger.info(f'testing image {img_idx}')
@@ -90,6 +91,7 @@ def main(cfg:DictConfig):
             imsave(join(test['name'],'images',f'{img_idx}','last_recon.png'),single2uint(results['recon_image']))
             imsave(join(test['name'],'images',f'{img_idx}','best_recon.png'),single2uint(results['peak_image']))
             avg_final_psnr+=results['final_psnr']
+            avg_final_pure_loss += results['final_pure_loss']
             if cfg.exp.output_every_step:
                 Path(join(test['name'],'images',f'{img_idx}','every_step','x')).mkdir(parents=True,exist_ok=True)
                 for k in range(len(results['x'])):
@@ -101,8 +103,10 @@ def main(cfg:DictConfig):
                 for k in range(len(results['Dx'])):
                     imsave(join(test['name'],'images',f'{img_idx}','every_step','Dx',f'Dx_{k}.png'),single2uint(results['Dx'][k]))
         avg_final_psnr/=len(input_img_lst)
+        avg_final_pure_loss /= len(input_img_lst)
         result_data_frame=pd.DataFrame({
             'final_psnr':[avg_final_psnr],
+            'final_pure_loss':[avg_final_pure_loss],
             'max_iter': [cfg.exp.restore.max_iter],
         })
         output_file = Path(get_original_cwd()) / cfg.exp.output_csv
