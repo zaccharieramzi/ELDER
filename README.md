@@ -19,12 +19,12 @@ Once downloaded, place them into `./ckpts`.
 Then you can run the following command to reproduce the results for ELDER:
 
 ```
-python elder/tune.py data_fidality=sr_test_x3 regularization=elder exp.output_every_step=False 'exp.paths.data_path=miscs/CBSD68' 'exp.restore.max_iter=range(20, 200, 20)'
+python elder/tune.py -m data_fidality=sr_test_x3 regularization=elder exp.output_every_step=False 'exp.paths.data_path=miscs/CBSD68' 'exp.restore.max_iter=range(20, 200, 20)'
 ```
 
 And this one for DEQ:
 ```
-python elder/tune.py data_fidality=sr_test_x3 regularization=deq exp.output_every_step=False 'exp.paths.data_path=miscs/CBSD68' 'exp.restore.max_iter=range(20, 200, 20)'
+python elder/tune.py -m data_fidality=sr_test_x3 regularization=deq exp.output_every_step=False 'exp.paths.data_path=miscs/CBSD68' 'exp.restore.max_iter=range(20, 200, 20)'
 ```
 
 To generate the figure use the [`results_n_iter`](common_experiments/results_n_iter.ipynb) notebook.
